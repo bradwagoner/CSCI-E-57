@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:annotation-config/>
+
+
+    <!-- Categories -->
+    <bean id="romanceCategory" class="wagoner.brad.harvard.domain.Category">
+        <property name="id" value="0"/>
+        <property name="name" value="Romance"/>
+        <property name="booksList" ref="romanceList"/>
+    </bean>
+    <bean id="dramaCategory" class="wagoner.brad.harvard.domain.Category">
+        <property name="id" value="1"/>
+        <property name="name" value="Drama"/>
+        <property name="booksMap" ref="dramaMap"/>
+    </bean>
+    <bean id="selfHelpCategory" class="wagoner.brad.harvard.domain.Category">
+        <property name="id" value="2"/>
+        <property name="name" value="Self Help"/>
+        <property name="booksSet" ref="selfHelpSet"/>
+    </bean>
+
+
+    <!-- Romance Books -->
+    <util:list id="romanceList" list-class="java.util.LinkedList">
+        <ref bean="fiftyShades"/>
+        <ref bean="fiftyShadesDarker"/>
+
+        <bean id="fiftyShadesFreed" class="wagoner.brad.harvard.domain.Book">
+            <property name="id" value="7"/>
+            <property name="isbn" value="9780345803504"/>
+            <property name="title" value="Fifty Shades Freed"/>
+            <property name="price" value="9.69"/>
+        </bean>
+    </util:list>
+
+    <!-- Drama Books -->
+    <util:map id="dramaMap" map-class="java.util.HashMap">
+        <entry key="Hunger Games" value-ref="hungerGames"/>
+        <entry key="Mockingjay" value-ref="mockingjay"/>
+        <entry key="Catching Fire" value-ref="catchingFire"/>
+        <entry key="Gone Girl" value-ref="goneGirl"/>
+
+        <entry key="Unbroken">
+            <bean id="unbroken" class="wagoner.brad.harvard.domain.Book">
+                <property name="id" value="9"/>
+                <property name="isbn" value="0812974492"/>
+                <property name="title" value="Unbroken"/>
+                <property name="price" value="10.87"/>
+            </bean>
+        </entry>
+    </util:map>
+
+    <!-- Self Help Books -->
+    <util:set id="selfHelpSet" set-class="java.util.HashSet">
+        <bean id="theHelp" class="wagoner.brad.harvard.domain.Book">
+            <property name="id" value="8"/>
+            <property name="isbn" value="0425232204"/>
+            <property name="title" value="The Help"/>
+            <property name="price" value="9.84"/>
+        </bean>
+
+        <bean id="strengthsFinder" class="wagoner.brad.harvard.domain.Book">
+            <property name="id" value="5"/>
+            <property name="isbn" value="9781595620156"/>
+            <property name="title" value="StrengthsFinder"/>
+            <property name="price" value="16.21"/>
+        </bean>
+    </util:set>
+
+
+    <!-- Books -->
+    <bean id="fiftyShades" class="wagoner.brad.harvard.domain.Book">
+        <property name="id" value="0"/>
+        <property name="isbn" value="0345803485"/>
+        <property name="title" value="Fifty Shades of Grey"/>
+        <property name="price" value="8.99"/>
+    </bean>
+
+    <bean id="hungerGames" class="wagoner.brad.harvard.domain.Book">
+        <property name="id" value="1"/>
+        <property name="isbn" value="9780439023528"/>
+        <property name="title" value="The Hunger Games"/>
+        <property name="price" value="8.79"/>
+    </bean>
+
+    <bean id="catchingFire" class="wagoner.brad.harvard.domain.Book">
+        <property name="id" value="2"/>
+        <property name="isbn" value="0439023491"/>
+        <property name="title" value="Catching Fire"/>
+        <property name="price" value="7.24"/>
+    </bean>
+
+    <bean id="fiftyShadesDarker" class="wagoner.brad.harvard.domain.Book">
+        <property name="id" value="3"/>
+        <property name="isbn" value="0345803493"/>
+        <property name="title" value="Fifty Shades Darker"/>
+        <property name="price" value="9.27"/>
+    </bean>
+
+    <bean id="mockingjay" class="wagoner.brad.harvard.domain.Book">
+        <property name="id" value="4"/>
+        <property name="isbn" value="0545663261"/>
+        <property name="title" value="Mockingjay"/>
+        <property name="price" value="9.61"/>
+    </bean>
+
+    <bean id="goneGirl" class="wagoner.brad.harvard.domain.Book">
+        <property name="id" value="6"/>
+        <property name="isbn" value="0307588378"/>
+        <property name="title" value="Gone Girl"/>
+        <property name="price" value="9.99"/>
+    </bean>
+</beans>

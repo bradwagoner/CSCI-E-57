@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="categoryDao" class="wagoner.brad.harvard.dao.impl.CategoryDaoImpl" />
+
+    <bean id="createCategoryQuery" class="wagoner.brad.harvard.crud.category.CreateCategoryQuery">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean id="deleteCategoryQuery" class="wagoner.brad.harvard.crud.category.DeleteCategoryQuery">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean id="getAllCategoriesQuery" class="wagoner.brad.harvard.crud.category.GetAllCategoriesQuery">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean id="getCategoryByIdQuery" class="wagoner.brad.harvard.crud.category.GetCategoryByIdQuery">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean id="updateCategoryQuery" class="wagoner.brad.harvard.crud.category.UpdateCategoryQuery">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+</beans>
